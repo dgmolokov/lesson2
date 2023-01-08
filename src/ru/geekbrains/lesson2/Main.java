@@ -1,6 +1,9 @@
 package ru.geekbrains.lesson2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Collections;
 
 public class Main {
 
@@ -16,25 +19,33 @@ public class Main {
     System.out.println("Задание 5 - найти минимальный и максимальный элементы");
     findMinMax();
     System.out.println("Задание 6 - проверить массив на совпадение сумм левой и правой части");
-    int[] arrayTaskSixOne = {2, 2, 2, 1, 2, 2, 10, 1};
-    checkBalance(arrayTaskSixOne);
-    int[] arrayTaskSixTwo = {1, 1, 1, 2, 1};
-    checkBalance(arrayTaskSixTwo);
-    int[] arrayTaskSixThree = {1, 8, 1, 2, 1};
-    checkBalance(arrayTaskSixThree);
+    int[] arrayForCheck = {2, 2, 2, 1, 2, 2, 10, 1};
+    checkBalance(arrayForCheck);
     System.out.println("Задание 7 - сместить элементы массива на n");
-    int[] arrayTaskSeven = {1, 2, 3, 4, 5, 6, 7, 8};
-    displaseArrayElements(arrayTaskSeven, 3);
-    displaseArrayElements(arrayTaskSeven, -3);
+    displaseArrayElements(arrayForCheck, 3);
+    displaseArrayElements(arrayForCheck, -3);
+    System.out.println("Задание 7* - сместить элементы массива на n используя библиотеку Collections");
+//    List<Integer> listforCheck = new ArrayList(Arrays.asList(arrayForCheck));
+    List<Integer> listForCheck = new ArrayList<>();
+    listForCheck.add(1);
+    listForCheck.add(2);
+    listForCheck.add(3);
+    listForCheck.add(4);
+    listForCheck.add(5);
+    int distance = 4;
+    System.out.printf("%s - сместить на %d\n", listForCheck, distance);
+    Collections.rotate(listForCheck, 4);
+    System.out.println(listForCheck);
   }
 
   private static void changeArrayElements() {
     int[] array = {1, 1, 0, 1, 1, 0, 0};
     System.out.printf("%s\n", Arrays.toString(array));
     for (int i = 0; i < array.length; i++) {
-      switch (array[i]) {
-        case 0 -> array[i] = 1;
-        default -> array[i] = 0;
+      if (array[i] == 0) {
+        array[i] = 1;
+      } else {
+        array[i] = 0;
       }
     }
     System.out.printf("%s\n", Arrays.toString(array));
@@ -105,9 +116,10 @@ public class Main {
         }
       }
       if (leftSum == rightSum) {
-        System.out.printf("левая сумма - %d\n", leftSum);
-        System.out.printf("правая сумма - %d\n", rightSum);
-        System.out.println("В массиве есть место в котором сумма левой и правой части массива равны");
+        System.out.printf("""
+          левая сумма - %d
+          правая сумма - %d
+          В массиве есть место в котором сумма левой и правой части массива равны""", leftSum, rightSum);
         return true;
       }
     }
