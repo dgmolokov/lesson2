@@ -25,7 +25,7 @@ public class Main {
     displaseArrayElements(arrayForCheck, 3);
     displaseArrayElements(arrayForCheck, -3);
     System.out.println("Задание 7* - сместить элементы массива на n используя библиотеку Collections");
-    List<Integer> listForCheck = new ArrayList<>(List.of(1,2,3,4,5));
+    List<Integer> listForCheck = new ArrayList<>(List.of(1, 2, 3, 4, 5));
     int distance = 4;
     System.out.printf("%s - сместить на %d\n", listForCheck, distance);
     Collections.rotate(listForCheck, 4);
@@ -93,8 +93,7 @@ public class Main {
         max = i;
       }
     }
-    System.out.printf("min = %s\n", min);
-    System.out.printf("max = %s\n", max);
+    System.out.printf("min = %s, max = %s\n", min, max);
   }
 
   private static boolean checkBalance(int[] array) {
