@@ -26,10 +26,7 @@ public class Main {
     displaseArrayElements(arrayForCheck, -3);
     System.out.println("Задание 7* - сместить элементы массива на n используя библиотеку Collections");
     List<Integer> listForCheck = new ArrayList<>(List.of(1, 2, 3, 4, 5));
-    int distance = 4;
-    System.out.printf("%s - сместить на %d\n", listForCheck, distance);
-    Collections.rotate(listForCheck, 4);
-    System.out.println(listForCheck);
+    displaceArrayElementsCollections(listForCheck, 4);
   }
 
   private static void changeArrayElements() {
@@ -144,5 +141,11 @@ public class Main {
       }
     }
     System.out.println(Arrays.toString(array));
+  }
+
+  private static void displaceArrayElementsCollections(List<Integer> list, int distance) {
+    System.out.printf("%s - сместить на %d\n", list, distance);
+    Collections.rotate(list, distance);
+    System.out.println(list);
   }
 }
